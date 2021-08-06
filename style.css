@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+.background-img {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.info {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.info .stop-btn {
+  display: none;
+  margin: 10px auto;
+}
+
+.info .play-btn {
+  margin: 10px auto;
+}
+
+
+.info .play-btn,
+.info .stop-btn,
+.modal .replay-btn{
+  font-size: 26px;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  border: 4px solid #000;
+  border-radius: 10px;
+  color: #000;
+  background-color: #d4d8ed;
+  transition: transform 250ms ease-in-out;
+}
+
+.info .play-btn:hover,
+.modal .replay-btn:hover,
+.info .stop-btn:hover {
+  transform: scale(1.1,1.1);
+}
+
+.info .timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #fff;
+  border: 4px solid #000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.info .counter {
+  width: 65px;
+  height: 65px;
+  margin: auto;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  background-color: #f6ada2;
+  color: #fff;
+  border: 4px solid #000;
+  border-radius: 50%;
+}
+
+.modal {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%,-60%);
+  margin: auto;
+  padding: 10px;
+  width: 50%;
+  max-width: 550px;
+  height: 30%;
+  border-radius: 30px;
+  background-color: rgba(70, 70, 70, 0.7);
+}
+
+.modal-desc {
+  margin: 0 0 10px 0;
+  font-size: 50px;
+  color: #fff;
+}
+
+.items-box {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,-5%);
+  width: 90%;
+  height: 50vh;
+  margin: 0;
+}
+
+.carrot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+}
+
+.bug {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+}
