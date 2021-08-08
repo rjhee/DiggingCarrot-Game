@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./img/carrot.png" rel="shortcut icon" type="image/x-icon">
-  <script src="https://kit.fontawesome.com/e4031df8e6.js" crossorigin="anonymous"></script>
-  <script src="/main.js" defer></script>
-  <title>Carrot Game</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="bgm"></div>
-  <div class="click-sound"></div>
-  <div class="background-img"></div>
-  <section class="info">
-    <button type="button" class="stop-btn">
-      <i class="fas fa-stop"></i>
-    </button>
-    <button type="button" class="play-btn">
-      <i class="fas fa-play"></i>
-    </button>
-    <div class="timer">00:00</div>
-    <div class="counter">0
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./img/carrot.png" rel="shortcut icon" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/e4031df8e6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js" defer></script>
+    <title>Carrot Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bgm"></div>
+    <div class="click-sound"></div>
+    <div class="background-img"></div>
+    <section class="info">
+      <button type="button" class="stop-btn">
+        <i class="fas fa-stop"></i>
+      </button>
+      <button type="button" class="play-btn">
+        <i class="fas fa-play"></i>
+      </button>
+      <div class="timer">00:00</div>
+      <div class="counter">0</div>
+    </section>
+    <article class="modal">
+      <button type="button" class="replay-btn">
+        <i class="fas fa-redo-alt"></i>
+      </button>
+      <h1 class="modal-desc"></h1>
+    </article>
+    <div class="items-box"></div>
+    <div class="game-rule">
+      <h1>🥕Game Rule🥕</h1>
+      <ol>
+        <li>1️⃣ 당근을 10초안에 모두 뽑아야 합니다.🥕 👆🏼</li>
+        <li>2️⃣ 벌레를 클릭하면 게임이 끝납니다.👾 👆🏼</li>
+        <li>3️⃣ 10초안에 당근을 모두 뽑지 못하면 게임이 끝납니다.😹</li>
+      </ol>
     </div>
-  </section>
-  <article class="modal">
-    <button type="button" class="replay-btn">
-      <i class="fas fa-redo-alt"></i>
-    </button>
-    <h1 class="modal-desc"></h1>
-  </article>
-  <div class="items-box">
-  </div>
-</body>
+  </body>
 </html>
