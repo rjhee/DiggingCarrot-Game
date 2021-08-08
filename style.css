@@ -130,6 +130,7 @@ button {
   width: 80px;
   height: auto;
   cursor: pointer;
+  transition: all 200ms ease-in;
 }
 
 .bug {
@@ -139,6 +140,15 @@ button {
   width: 60px;
   height: auto;
   cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.carrot:hover {
+  width: 5.5em;
+}
+
+.bug:hover {
+  width: 4em;
 }
 
 .game-rule {
