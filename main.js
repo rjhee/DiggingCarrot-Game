@@ -11,9 +11,29 @@ playBtn.addEventListener("click", () => {
   onChangeBtn();
   carrotOnDisplay();
   bugOnDisplay();
-  bgm.innerHTML = `<audio src="./sound/bg.mp3" autoplay></audio>`;
-  gameLule.style.display = "none";
+  playSound("bg");
+  hideModalBox("gameLule");
 });
+
+function playSound(sound) {
+  switch (sound) {
+    case "bg":
+      bgm.innerHTML = `<audio src="./sound/bg.mp3" autoplay></audio>`;
+      break;
+    case "alert":
+      bgm.innerHTML = `<audio src="./sound/alert.wav" autoplay></audio>`;
+      break;
+    case "carrot":
+      clickSound.innerHTML = `<audio src="./sound/carrot_pull.mp3" autoplay></audio>`;
+      break;
+    case "bug":
+      clickSound.innerHTML = `<audio src="./sound/bug_pull.mp3" autoplay></audio>`;
+      break;
+    case "win":
+      bgm.innerHTML = `<audio src="./sound/game_win.mp3" autoplay></audio>`;
+      break;
+  }
+}
 
 // - 재생버튼 중지버튼으로 바뀌기
 function onChangeBtn() {
@@ -32,26 +52,30 @@ stopBtn.addEventListener("click", (event) => {
   getModalBox("replay");
   itemsRemove("all");
   clearInterval(timerinterval);
-  bgm.innerHTML = `<audio src="./sound/alert.wav" autoplay></audio>`;
+  playSound("alert");
 });
 
 function getModalBox(showMessage) {
   modal.style.display = "flex";
   switch (showMessage) {
     case "win":
-      modalDesc.textContent = "YOU WIN🥳";
+      modalDesc.textContent = "🥳 YOU WIN 🥳";
       break;
     case "lost":
-      modalDesc.textContent = "YOU LOST😱";
+      modalDesc.textContent = "😱 YOU LOST 😱";
       break;
     case "replay":
-      modalDesc.textContent = "Replay🥕";
+      modalDesc.textContent = "🥕 Replay 🥕";
       break;
   }
 }
 
-function hideModalBox() {
-  modal.style.display = "none";
+function hideModalBox(modalBox) {
+  if (modalBox == "gameLule") {
+    gameLule.style.display = "none";
+  } else {
+    modal.style.display = "none";
+  }
 }
 
 const replayBtn = document.querySelector(".replay-btn");
@@ -64,7 +88,7 @@ replayBtn.addEventListener("click", () => {
   bugOnDisplay();
   hideModalBox();
   countItems("reset");
-  bgm.innerHTML = `<audio src="./sound/bg.mp3" class="bgm" autoplay></audio>`;
+  playSound("bg");
 });
 
 // - 타이머 시간 줄어들기.
@@ -246,16 +270,13 @@ itemsBox.addEventListener("click", (event) => {
     clickOnBug(target);
     itemsRemove(event.target);
   }
-  // if(counter.textContent < 15 && timer.textContent == '0:0') {
-  //   clickOnBug('bug');
-  // };
 });
 
 function clickOnCarrot(target) {
   if (target === "carrot") {
     countItems();
     userWin();
-    clickSound.innerHTML = `<audio src="./sound/carrot_pull.mp3" autoplay></audio>`;
+    playSound("carrot");
   }
 }
 
@@ -267,8 +288,8 @@ function clickOnBug(target) {
     getModalBox("lost");
     itemsRemove("all");
     clearInterval(timerinterval);
-    clickSound.innerHTML = `<audio src="./sound/bug_pull.mp3" autoplay></audio>`;
-    bgm.innerHTML = `<audio src="./sound/alert.wav" autoplay></audio>`;
+    playSound("bug");
+    playSound("alert");
   }
 }
 
@@ -279,7 +300,7 @@ function userWin() {
     getModalBox("win");
     itemsRemove("all");
     clearInterval(timerinterval);
-    bgm.innerHTML = `<audio src="./sound/game_win.mp3" autoplay></audio>`;
+    playSound("win");
   }
 }
 
