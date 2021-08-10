@@ -8,7 +8,7 @@ const modal = new Modal();
 const gameInfo = new GameInfo(result);
 
 const field = new Field(2, 4); // carrot , bug
-let duration = 2;
+let duration = 20;
 
 gameInfo.playBtn.addEventListener("click", () => {
   gameInfo.printTimer(duration);
@@ -35,15 +35,16 @@ gameInfo.replayBtn.addEventListener("click", () => {
   sound.playbg();
 });
 
+let carrotCounted;
 field.itemsBox.addEventListener("click", (event) => {
   const target = event.target.className;
   if (target != "items-box") {
-    result(target);
     field.itemsRemove(event.target);
     target == "carrot" && gameInfo.countItems(), sound.playCarrotPull();
+    carrotCounted = gameInfo.counter.textContent;
+    result(target);
   }
 });
-
 function result(target) {
   if (target === "bug") {
     modal.show("lost");
@@ -51,7 +52,7 @@ function result(target) {
     clearInterval(gameInfo.timerinterval);
     sound.playFail();
     sound.stopbg();
-  } else if (gameInfo.counter.textContent === field.carrotCount) {
+  } else if (carrotCounted == field.carrotCount) {
     modal.show("win");
     field.itemsRemove("all");
     clearInterval(gameInfo.timerinterval);
@@ -59,6 +60,8 @@ function result(target) {
     sound.stopbg();
   }
 }
+
+console.log(gameInfo.counter.textContent);
 
 // 📌 어려웠던점!
 // 👉🏼 items-box안에 새로만든 당근과 버그를 랜덤으로 배치하는 기능.
