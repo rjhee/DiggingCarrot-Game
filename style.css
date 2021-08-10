@@ -5,16 +5,24 @@
 body {
   margin: 0;
   text-align: center;
+  font-family: "Tourney", "Jua", monospace;
 }
 
-.background-img {
+.game {
   position: relative;
   width: 100%;
+  max-width: 800px;
   height: 100vh;
+  max-height: 450px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 30px;
   background-image: url(./img/background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  box-shadow: 10px 14px 27px 3px rgba(0, 0, 0, 0.53),
+    -18px 18px 17px -6px rgba(0, 0, 0, 0.25);
 }
 
 button {
@@ -24,29 +32,22 @@ button {
   cursor: pointer;
 }
 
-.info {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .info .stop-btn {
   display: none;
-  margin: 10px auto;
+  margin: 6px auto;
 }
 
 .info .play-btn {
-  margin: 10px auto;
+  margin: 6px auto;
 }
 
 .info .play-btn,
 .info .stop-btn,
 .modal .replay-btn {
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
-  width: 80px;
-  height: 80px;
+  width: 55px;
+  height: 55px;
   border: 4px solid #000;
   border-radius: 10px;
   color: #000;
@@ -64,25 +65,25 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 50px;
-  font-size: 30px;
+  width: 150px;
+  height: 45px;
+  font-size: 25px;
   font-weight: 600;
   background-color: #fff;
   border: 4px solid #000;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin: 0 auto 6px;
   user-select: none;
   cursor: auto;
 }
 
 .info .counter {
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   margin: auto;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.1;
   text-align: center;
   background-color: #f6ada2;
   color: #fff;
@@ -98,7 +99,7 @@ button {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 60%;
+  top: 65%;
   left: 50%;
   z-index: 1;
   transform: translate(-50%, -60%);
@@ -106,14 +107,14 @@ button {
   padding: 10px;
   width: 50%;
   max-width: 550px;
-  height: 30%;
-  border-radius: 30px;
+  height: 40%;
+  border-radius: 20px;
   background-color: rgba(70, 70, 70, 0.7);
 }
 
 .modal-desc {
   margin: 0 0 10px 0;
-  font-size: 50px;
+  font-size: 40px;
   color: #fff;
 }
 
@@ -123,21 +124,11 @@ button {
   left: 50%;
   transform: translate(-50%, -5%);
   width: 90%;
-  height: 50vh;
+  height: 45vh;
   margin: 0;
 }
 
 .carrot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: auto;
-  cursor: pointer;
-  transition: all 200ms ease-in;
-}
-
-.bug {
   position: absolute;
   top: 0;
   left: 0;
@@ -147,39 +138,50 @@ button {
   transition: all 200ms ease-in;
 }
 
+.bug {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
 .carrot:hover {
-  width: 5.5em;
+  transform: scale(1.1);
 }
 
 .bug:hover {
-  width: 4em;
+  transform: scale(1.1);
 }
 
 .game-rule {
   position: absolute;
-  top: 58%;
+  top: 60%;
   left: 50%;
-  padding: 40px;
+  padding: 10px;
   transform: translate(-50%, -50%);
-  width: 55%;
+  width: 60%;
+  height: auto;
   border-radius: 20px;
   color: #fff;
   background-color: rgba(70, 70, 70, 0.9);
 }
 
 .game-rule h1 {
-  font-size: 40px;
-  margin-top: 0;
+  font-size: 26px;
+  margin: 10px;
 }
 
 .game-rule ol {
-  padding-left: 40px;
+  padding-left: 10px;
   text-align: start;
   list-style: none;
 }
 
 .game-rule li {
-  font-size: 25px;
+  font-size: 18px;
   margin-top: 10px;
 }
 
@@ -266,7 +268,6 @@ button {
   }
 
   .game-rule {
-    display: none;
     padding: 15px;
     width: 55%;
   }
