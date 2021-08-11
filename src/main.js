@@ -2,17 +2,35 @@
 import Field from "./field.js";
 import GameInfo from "./game-info.js";
 import Modal from "./modal.js";
+import Level from "./level.js";
 import * as sound from "./sound.js";
 
+const level = new Level();
 const modal = new Modal();
 const gameInfo = new GameInfo(result);
 
-const field = new Field(2, 4); // carrot , bug
-let duration = 20;
+const field = new Field();
+let duration = 10;
+
+field.carrotCount = 2;
+field.bugCount = 2;
+
+level.yesBtn.addEventListener("click", () => {
+  level.leveNumlUp();
+  duration = duration + 3;
+  gameInfo.printTimer(duration);
+  gameInfo.changeBtn("play");
+  field.carrotCount = field.carrotCount * 2;
+  field.bugCount = field.bugCount * 1.5;
+  field.addItem();
+  modal.hide();
+  gameInfo.countItems("reset");
+  sound.playbg();
+});
 
 gameInfo.playBtn.addEventListener("click", () => {
   gameInfo.printTimer(duration);
-  gameInfo.changeBtn();
+  gameInfo.changeBtn("play");
   field.addItem();
   sound.playbg();
   modal.hide("gameLule");
@@ -24,11 +42,12 @@ gameInfo.stopBtn.addEventListener("click", (event) => {
   clearInterval(gameInfo.timerinterval);
   sound.playAlert();
   sound.stopbg();
+  gameInfo.changeBtn("stop");
 });
 
 gameInfo.replayBtn.addEventListener("click", () => {
   gameInfo.printTimer(duration);
-  gameInfo.changeBtn();
+  gameInfo.changeBtn("play");
   field.addItem();
   modal.hide();
   gameInfo.countItems("reset");
@@ -38,30 +57,31 @@ gameInfo.replayBtn.addEventListener("click", () => {
 let carrotCounted;
 field.itemsBox.addEventListener("click", (event) => {
   const target = event.target.className;
-  if (target != "items-box") {
-    field.itemsRemove(event.target);
-    target == "carrot" && gameInfo.countItems(), sound.playCarrotPull();
+  target != "items-box" && field.itemsRemove(event.target);
+  if (target == "carrot") {
+    gameInfo.countItems(), sound.playCarrotPull();
     carrotCounted = gameInfo.counter.textContent;
-    result(target);
   }
+  result(target);
 });
+
 function result(target) {
   if (target === "bug") {
-    modal.show("lost");
+    modal.show("lost", carrotCounted);
     field.itemsRemove("all");
     clearInterval(gameInfo.timerinterval);
     sound.playFail();
     sound.stopbg();
+    gameInfo.changeBtn("stop");
   } else if (carrotCounted == field.carrotCount) {
     modal.show("win");
     field.itemsRemove("all");
     clearInterval(gameInfo.timerinterval);
     sound.playWin();
     sound.stopbg();
+    gameInfo.changeBtn("stop");
   }
 }
-
-console.log(gameInfo.counter.textContent);
 
 // 📌 어려웠던점!
 // 👉🏼 items-box안에 새로만든 당근과 버그를 랜덤으로 배치하는 기능.

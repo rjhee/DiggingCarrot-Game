@@ -21,16 +21,21 @@ export default class GameInfo {
     this.result = result;
   }
 
-  changeBtn() {
-    this.playBtn.style.display = "none";
-    this.stopBtn.style.display = "block";
+  changeBtn(button) {
+    if (button == "play") {
+      this.playBtn.style.display = "none";
+      this.stopBtn.style.display = "block";
+      this.stopBtn.style.visibility = "visible";
+    } else if (button == "stop") {
+      this.stopBtn.style.visibility = "hidden";
+    }
   }
 
   printTimer(duration) {
     this.timerinterval = setInterval(() => {
       if (duration > 0) {
         this.timer.innerHTML =
-          duration < 10 ? `00:0${--duration}` : `00:${--duration}`;
+          duration <= 10 ? `00:0${--duration}` : `00:${--duration}`;
       } else if (duration == 0) {
         this.result("bug");
       }
