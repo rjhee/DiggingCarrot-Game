@@ -1,7 +1,6 @@
 <img src="https://user-images.githubusercontent.com/87287296/138561621-ad44f0b2-3f83-4364-a2d2-81eeb05f40d9.gif" alt="당근게임">
 
- <div class="main-project-desc">
-              <h2 class="desc-title">당근뽑기 게임 (콘솔 게임)</h2>
+              <h1 class="desc-title">당근뽑기 게임 (콘솔 게임)</h2>
               <a
                 href="https://rjhee.github.io/diggingcarrot-game/"
                 target="_blank"
@@ -10,7 +9,6 @@
               >
               <dl class="desc-cover">
                 <dt>
-                  <i class="icon-checkcircle"></i>
                   컨셉
                 </dt>
                 <dd>
@@ -28,7 +26,6 @@
                   <span class="js-icon skill-icon"></span>
                 </dd>
                 <dt>
-                  <i class="icon-checkcircle"></i>
                   기능
                 </dt>
                 <dd>- 당근과 벌레를 랜덤으로 배치하기.</dd>
@@ -37,7 +34,6 @@
                 <dd>- 당근을 제한시간내에 다 뽑으면 레벨업.</dd>
 
                 <dt>
-                  <i class="icon-checkcircle"></i>
                   배운점
                 </dt>
                 <dd>
@@ -48,4 +44,4 @@
                 <dd>자바스크립트로 사운드파일 제어 방법을 배웠습니다.</dd>
                 <dd>필요한 함수를 만드는 기술을 익혔습니다.</dd>
               </dl>
-            </div>
+
